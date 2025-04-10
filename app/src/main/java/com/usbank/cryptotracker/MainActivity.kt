@@ -15,15 +15,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.usbank.cryptotracker.ui.screen.CryptoScreen
 import com.usbank.cryptotracker.ui.theme.CryptoTrackerTheme
 import com.usbank.cryptotracker.ui.viewmodel.CryptoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: CryptoViewModel by viewModels()
+//    private val viewModel: CryptoViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            CryptoScreen(viewModel)
+            CryptoScreen()
        /*     CryptoTrackerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
