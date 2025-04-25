@@ -3,6 +3,7 @@ package com.usbank.cryptotracker.di
 
 import com.usbank.cryptotracker.data.network.ApiService
 import com.usbank.cryptotracker.data.respository.CryptoRepository
+import com.usbank.cryptotracker.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,15 +16,17 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+
     @Provides
     @Singleton
     fun provideApiService(): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/")
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
     }
+
 
     @Provides
     @Singleton
